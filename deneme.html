@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polisan Chat</title>
+    <style>
+        /* Genel stil ayarları */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box; /* Padding ve border dahil genişlik */
+        }
+        #logo {
+            display: block;
+            margin: 0 auto; /* Resmi ortalar */
+            width: 300px; /* Resim boyutu */
+        }
+        .polisan-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/polisanLogo.jpeg" alt="Polisan Logo" id="logo">
+        <h1>Poli Chat</h1>
+        <div class="form-container">
+            <form id="chat-form">
+                <label for="mytext">Mesajınızı girin:</label>
+                <textarea id="mytext" rows="4" required></textarea>
+                <button type="submit">Ara</button>
+                <button type="button" id="polisan-question-btn" class="polisan-button">Polisan hakkında soru sor</button>
+            </form>
+        </div>
+        <div>
+            <h2>Cevap:</h2>
+            <textarea id="response" rows="20" readonly></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

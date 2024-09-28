@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polisan Chat</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #logo {
+            display: block;
+            margin: 0 auto;
+            width: 300px;
+        }
+        #top-right-image {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            width: 150px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            resize: none;
+        }
+        #polisan-question-btn {
+            background-color: #0061fd; /* Arka plan rengi */
+            color: #fff; /* Metin rengi */
+            border: 1px solid #0061fd; /* Kenar rengi */
+            padding: 10px 20px; /* İç boşluk (padding) */
+            font-size: 16px; /* Yazı boyutu */
+            border-radius: 5px; /* Kenar yuvarlama */
+            cursor: pointer; /* Fare imlecini işaretçi yapar */
+        }
+        #polisan-question-btn:hover {
+            background-color: #0b5bdb; /* Hover arka plan rengi */
+            border: 1px solid #0b5bdb; /* Hover kenar rengi */
+        }
+        #polisan-question-btn:active {
+            background-color: rgb(10, 73, 175); /* Aktif durumda daha koyu renk */
+        }
+        #search-btn {
+            background-color: #46a149; /* Arka plan rengi */
+            color: #fff; /* Metin rengi */
+            border: 1px solid #46a149; /* Kenar rengi */
+            padding: 10px 20px; /* İç boşluk (padding) */
+            font-size: 16px; /* Yazı boyutu */
+            border-radius: 5px; /* Kenar yuvarlama */
+            cursor: pointer; /* Fare imlecini işaretçi yapar */
+        }
+        #search-btn:hover {
+            background-color: #3f9042; /* Hover arka plan rengi */
+            border: 1px solid #3f9042; /* Hover kenar rengi */
+        }
+        #feedback-container {
+            margin-top: 10px;
+        }
+        #feedback-container button {
+            background: none; /* Arka plan rengini kaldırır */
+            border: none; /* Kenar çizgilerini kaldırır */
+            font-size: 24px; /* Emoji boyutunu ayarlar */
+            cursor: pointer; /* Fare imlecini işaretçi yapar */
+            margin: 0 5px; /* Butonlar arasındaki boşluğu ayarlar */
+        }
+        #feedback-container button:hover {
+            background: none; /* Hover durumunda da arka planı kaldırır */
+        }
+        #chat-history-container {
+            margin-top: 20px;
+        }
+        #chat-history {
+            border: 1px solid #ddd;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .message {
+            margin-bottom: 20px; /* Mesajlar arasında boşluk ekler */
+        }
+        .message.user {
+            color: blue;
+        }
+        .message.assistant {
+            color: green;
+        }
+        #chat-history-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        /* Placeholder metni için stil */
+        #mytext::placeholder {
+            font-weight: bold;
+            font-size: 16px; /* Placeholder metin boyutu */
+        }
+        /* Label stilini h2 başlığına benzetir */
+        .form-group label {
+            font-size: 24px; /* Başlık boyutu gibi */
+            font-weight: bold; /* Kalın yazı tipi */
+            display: block; /* Satır başı yapar */
+            margin-bottom: 10px; /* Alt boşluk */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <img src="klasikpolichat.png" alt="Polisan Logo" id="logo">
+            <img src="polisanLogo-removebg-preview.png" alt="Top Right Image" id="top-right-image">
+        </div>
+        <h1 class="text-center"></h1>
+        <div class="form-container">
+            <form id="chat-form" class="mb-3">
+                <div class="form-group">
+                    <label for="mytext">Mesajınızı girin</label>
+                    <textarea id="mytext" class="form-control" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" id="search-btn" class="btn btn-primary">Ara</button>
+                    <button type="button" id="polisan-question-btn" class="btn btn-secondary ml-2">Polisan hakkında soru sor</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2>Cevap</h2>
+            <textarea id="response" class="form-control" rows="20" readonly></textarea>
+            <div id="feedback-container"></div>
+        </div>
+        <div id="chat-history-container">
+            <div id="chat-history-header">Sohbet Geçmişi:</div>
+            <div id="chat-history"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
